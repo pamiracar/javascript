@@ -39,6 +39,13 @@ button {
 
 #save-btn {
     margin-top: 8px;
-    background: darkgreen;
+    background: darkblue;
+}
+
+#reset-btn {
+    margin-top: 8px;
+    background: lightblue;
+    margin-left: 10px;
+    color: black;
 }
 

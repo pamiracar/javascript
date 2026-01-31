@@ -5,17 +5,22 @@ let prev_entry = document.getElementById("prev-entry");
 function increment() {
     console.log("Increment button was clicked!");
     count += 1;
-    countEl.innerText = count;
+    countEl.textContent = count;
 }
 
 function decrement() {
     console.log("Decrement button was clicked!");
     count -= 1;
-    countEl.innerText = count;
+    countEl.textContent = count;
 }
 
 function save() {
     console.log(count);
-    prev_entry.innerText = prev_entry.innerText + count + " - ";
+    prev_entry.textContent = prev_entry.textContent + count + " - ";
+}
+function reset() {
+    console.log(count)
+    count = 0
+    countEl.textContent = count
 }
 
