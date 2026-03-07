@@ -7,6 +7,19 @@ let sum = 0
 let message = ""
 let newCard = 0
 
+let player = {
+    playerName: "Pamir",
+    playerChips: 145,
+    sayHello : function() {
+        console.log("Merhaba")
+    }
+}
+
+player.sayHello()
+
+let playerEl = document.getElementById("player-el")
+playerEl.textContent = player.playerName + ": $" + player.playerChips
+
 let messageEl = document.getElementById("message-el")
 console.log(messageEl)
 
@@ -17,11 +30,21 @@ let cardsEl = document.getElementById("cards-el")
 let gameStarted = false
 
 
+function randomNumber() {
+    let number =  Math.floor(Math.random() * 9) + 2
+    if (number > 10) {
+        return 10
+    } else if (number === 1) {
+        return 11
+    } else {
+        return number
+    }
+}
 
 function startGame() {
     gameStarted = true
-    firstCard = Math.floor(Math.random() * 9) + 2
-    secondCard = Math.floor(Math.random() * 9) + 2
+    firstCard = randomNumber()
+    secondCard = randomNumber()
     sum = firstCard + secondCard
     cardsEl.textContent = "Cards: " + firstCard + " " + secondCard
     sumEl.textContent = "Sum: " + sum
@@ -42,7 +65,7 @@ function startGame() {
 function newCardf() {
     if (gameStarted) {
         console.log("Drawing a new card from the desk!")
-        newCard = Math.floor(Math.random() * 9) + 2
+        newCard = randomNumber()
         console.log("New Card: " + newCard)
         sum += newCard
         renderGame()
