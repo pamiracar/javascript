@@ -1,0 +1,37 @@
+body {
+    margin: none;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+green color -> #5f9341
+*/
+
+input {
+    width: 100%;
+    padding: 10px 0;
+    padding-left: 5px;
+    font-size: 20px;
+    border: 2px solid #5f9341;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+input:focus {
+    background-color: lightcyan;
+    border: 2px solid #5f9341;
+    outline: none;
+}
+
+button {
+    font-size: 22px;
+    padding: 10px 30px;
+    color: white;
+    background-color: #5f9341;
+    border: none;
+    font-weight: bolder;
+    border-radius: 10px;
+}
