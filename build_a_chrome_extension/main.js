@@ -1,7 +1,16 @@
 let saveButton = document.getElementById("save-button")
 const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
-const myLeads = []
+let myLeads = []
+let listItems = ""
+
+let leadsFromLocalS = JSON.parse(localStorage.getItem("myLeads"))
+console.log(leadsFromLocalS)
+
+if (leadsFromLocalS) {
+    myLeads = leadsFromLocalS
+    renderLeads()
+}
 
 saveButton.addEventListener("click", function () {
     listItems = ""
@@ -10,6 +19,14 @@ saveButton.addEventListener("click", function () {
     myLeads.push(inputValue)
     inputEl.value = ""
 
+    localStorage.setItem("myLeads", JSON.stringify(myLeads))
+
+    renderLeads()
+
+    console.log(localStorage.getItem("myLeads"))
+})
+
+function renderLeads() {
     for (let i = 0; i < myLeads.length; i++) {
         const e = myLeads[i];
         //ulEl.innerHTML += "<li>" + e + "</li> "
@@ -27,8 +44,8 @@ saveButton.addEventListener("click", function () {
         `
     }
     ulEl.innerHTML = listItems
-})
+}
 
-let listItems = ""
+
 
 
