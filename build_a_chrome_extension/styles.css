@@ -27,15 +27,45 @@ input:focus {
     outline: none;
 }
 
-button {
+#save-button {
+    width: 32%;
     font-size: 22px;
-    padding: 10px 30px;
+    padding: 10px 0;
     color: white;
     background-color: #5f9341;
     border: none;
     font-weight: bolder;
     border-radius: 10px;
 }
+
+#save-tab-button {
+    width: 32%;
+    font-size: 22px;
+    padding: 10px 0;
+    color: white;
+    background-color: #5f9341;
+    border: none;
+    font-weight: bolder;
+    border-radius: 10px;
+}
+
+#delete-button {
+    width: 32%;
+    font-size: 22px;
+    padding: 10px 0;
+    color: #5f9341;
+    background-color: white;
+    border: 2px solid #5f9341;
+    font-weight: bolder;
+    border-radius: 10px;
+}
+
+.button-container{
+    width: 100%;
+    text-align: center;
+}
+
+
 
 a {
     color: #5f9341;

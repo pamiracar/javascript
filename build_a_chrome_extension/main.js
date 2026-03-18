@@ -1,15 +1,19 @@
 let saveButton = document.getElementById("save-button")
+let deleteButton = document.getElementById("delete-button")
+let saveTabButton = document.getElementById("save-tab-button")
 const inputEl = document.getElementById("input-el")
 const ulEl = document.getElementById("ul-el")
 let myLeads = []
-let listItems = ""
+
+
+renderLeads(myLeads)
 
 let leadsFromLocalS = JSON.parse(localStorage.getItem("myLeads"))
 console.log(leadsFromLocalS)
 
 if (leadsFromLocalS) {
     myLeads = leadsFromLocalS
-    renderLeads()
+    renderLeads(myLeads)
 }
 
 saveButton.addEventListener("click", function () {
@@ -21,22 +25,15 @@ saveButton.addEventListener("click", function () {
 
     localStorage.setItem("myLeads", JSON.stringify(myLeads))
 
-    renderLeads()
+    renderLeads(myLeads)
 
     console.log(localStorage.getItem("myLeads"))
 })
 
-function renderLeads() {
-    for (let i = 0; i < myLeads.length; i++) {
-        const e = myLeads[i];
-        //ulEl.innerHTML += "<li>" + e + "</li> "
-        // İki yöntem de kullanılabilir
-        /*
-        const li = document.createElement("li")
-        li.textContent = e
-        ulEl.append(li)
-        */
-
+function renderLeads(leads) {
+    let listItems = ""
+    for (let i = 0; i < leads.length; i++) {
+        const e = leads[i];
         listItems += `
             <li>
                 <a href='${e}' target='_blank'>${e}</a>
@@ -45,6 +42,12 @@ function renderLeads() {
     }
     ulEl.innerHTML = listItems
 }
+
+deleteButton.addEventListener("dblclick", function () {
+    localStorage.clear()
+    myLeads = []
+    renderLeads(myLeads)
+})
 
 
 
